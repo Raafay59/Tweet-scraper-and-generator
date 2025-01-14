@@ -5,6 +5,7 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 });
 
 function scroll() {
+  counter = 1;
   console.log("scrolling");
   let tweets = [];
   var i = 0;
@@ -18,7 +19,8 @@ function scroll() {
       tweet.forEach((tweet) => {
         let tweetText = tweet.querySelector("div[data-testid='tweetText']");
         if (tweetText) {
-          tweets.push(tweetText.innerText);
+          tweets.push("Tweet " + counter + ": " + tweetText.innerText);
+          counter++;
         }
       });
       i++;
